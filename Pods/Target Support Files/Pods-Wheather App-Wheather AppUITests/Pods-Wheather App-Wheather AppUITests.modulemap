@@ -1,0 +1,6 @@
+framework module Pods_Wheather_App_Wheather_AppUITests {
+  umbrella header "Pods-Wheather App-Wheather AppUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
