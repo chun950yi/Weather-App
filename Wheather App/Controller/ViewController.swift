@@ -12,6 +12,7 @@ import SVProgressHUD
 import CoreLocation
 
 class ViewController: UIViewController, delegateProtocol, CLLocationManagerDelegate {
+    
     func newCityName(city: String) {
         
         SVProgressHUD.show()
@@ -27,6 +28,12 @@ class ViewController: UIViewController, delegateProtocol, CLLocationManagerDeleg
     @IBOutlet weak var cityNameLabel: UILabel!
     
     @IBAction func gotoSecondView(_ sender: UIButton) {
+        let page2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SecondViewController") as! SecondViewController
+        page2.delegate = self
+        page2.modalPresentationStyle = .fullScreen
+        page2.modalTransitionStyle = .coverVertical
+        
+        present(page2, animated: true, completion: nil)
         
     }
     
@@ -57,6 +64,8 @@ class ViewController: UIViewController, delegateProtocol, CLLocationManagerDeleg
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
+//        print( "我正在更新" )
+        
         let location : CLLocation = locations[0]
         
         let latitude = String(location.coordinate.latitude)
@@ -71,50 +80,31 @@ class ViewController: UIViewController, delegateProtocol, CLLocationManagerDeleg
     }
 
     func getWeatherData(url: String, keys: [String : String]){
-        
         AF.request(url, method: HTTPMethod.get, parameters: keys, encoder: URLEncodedFormParameterEncoder.default, headers: nil, interceptor: nil, requestModifier: nil).responseData { response in
             
             switch response.result{
-                
             case .success:
-                
-                let weatherJsonData : JSON = JSON(response.value!)
-                
-                self.updateWeatherData(json: weatherJsonData)
-                
+                let jsonData : JSON = JSON(response.value!)
+                let weatherJSONData = WeatherJSONData(json: jsonData)
+                print(weatherJSONData)
+                self.updateWeatherData(data: weatherJSONData)
             case .failure:
-                
                 print("failure")
-                
             }
             
         }
         
     }
 
-    func updateWeatherData(json: JSON){
-        
-        if let temperature = json["main"]["temp"].double {
-            
-            weatherDataModel.temperature = Int(temperature - 273.15)
-            weatherDataModel.city = json["name"].stringValue
-            weatherDataModel.condition = json["weather"][0]["id"].intValue
-            
-            weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(conditionId: weatherDataModel.condition)
-            
-            updateUI()
-            
-        } else {
-            
-            cityNameLabel.text = "Weather Data Unavailable"
-            
-        }
-        
-        
+    func updateWeatherData(data: WeatherJSONData){
+        weatherDataModel.temperature = Int(data.temp - 273.15)
+        weatherDataModel.city = data.name
+        weatherDataModel.condition = data.weatherId
+        weatherDataModel.weatherIconName = weatherDataModel.updateWeatherIcon(conditionId: weatherDataModel.condition)
+        updateUI()
     }
     
     func updateUI(){
-        
         temperatureLabel.text = String(weatherDataModel.temperature) + "˚"
         weatherImage.image = UIImage(named: weatherDataModel.weatherIconName)
         cityNameLabel.text = weatherDataModel.city
@@ -123,20 +113,6 @@ class ViewController: UIViewController, delegateProtocol, CLLocationManagerDeleg
             SVProgressHUD.dismiss()
         }
         
-        
-        
-        
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "gotoSecondView" {
-            
-            let destination = segue.destination as! SecondViewController
-            destination.delegate = self
-            
-        }
     }
     
 }

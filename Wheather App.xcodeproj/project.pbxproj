@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BE473C1D539293FA3230CC0 /* Pods_Wheather_App_Wheather_AppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87815203A6B4711DB23B2CE6 /* Pods_Wheather_App_Wheather_AppUITests.framework */; };
+		332A76F62799B08B007700D5 /* WeatherJSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 332A76F52799B08B007700D5 /* WeatherJSONData.swift */; };
 		333CB5D52795C885009537A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CB5D42795C885009537A1 /* AppDelegate.swift */; };
 		333CB5D72795C885009537A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CB5D62795C885009537A1 /* SceneDelegate.swift */; };
 		333CB5D92795C885009537A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333CB5D82795C885009537A1 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 		135CE4EABA509E19BEB0E773 /* Pods-Wheather AppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wheather AppTests.release.xcconfig"; path = "Target Support Files/Pods-Wheather AppTests/Pods-Wheather AppTests.release.xcconfig"; sourceTree = "<group>"; };
 		2A904DA88856337C90391A24 /* Pods_Wheather_AppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wheather_AppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F975A2D1903511BAB5FF21F /* Pods-Wheather App-Wheather AppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wheather App-Wheather AppUITests.debug.xcconfig"; path = "Target Support Files/Pods-Wheather App-Wheather AppUITests/Pods-Wheather App-Wheather AppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		332A76F52799B08B007700D5 /* WeatherJSONData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherJSONData.swift; sourceTree = "<group>"; };
 		333CB5D12795C885009537A1 /* Wheather App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wheather App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		333CB5D42795C885009537A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		333CB5D62795C885009537A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				33C6E1FD27971FF00089578B /* WeatherDataModel.swift */,
+				332A76F52799B08B007700D5 /* WeatherJSONData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				333CB5D92795C885009537A1 /* ViewController.swift in Sources */,
 				333CB5D52795C885009537A1 /* AppDelegate.swift in Sources */,
 				33C6E20227972A250089578B /* SecondViewController.swift in Sources */,
+				332A76F62799B08B007700D5 /* WeatherJSONData.swift in Sources */,
 				333CB5D72795C885009537A1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -547,7 +551,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -602,7 +606,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

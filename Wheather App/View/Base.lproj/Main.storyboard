@@ -26,7 +26,9 @@
                                     <constraint firstAttribute="height" constant="40" id="DPO-hm-fZl"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="return"/>
+                                <buttonConfiguration key="configuration" style="plain" image="return">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="gotoSecondView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="72w-aX-XG8"/>
                                     <segue destination="tzw-FA-rbQ" kind="show" identifier="gotoSecondView" id="Wpq-qA-CnS"/>
@@ -90,7 +92,7 @@
         <!--Second View Controller-->
         <scene sceneID="kxa-un-QIv">
             <objects>
-                <viewController id="tzw-FA-rbQ" customClass="SecondViewController" customModule="Wheather_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" id="tzw-FA-rbQ" customClass="SecondViewController" customModule="Wheather_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nZY-cH-XFl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -105,7 +107,9 @@
                                     <constraint firstAttribute="height" constant="40" id="QI7-Uy-Tko"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="back"/>
+                                <buttonConfiguration key="configuration" style="plain" image="back">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="backViewController:" destination="tzw-FA-rbQ" eventType="touchUpInside" id="fLE-yd-BRP"/>
                                 </connections>
